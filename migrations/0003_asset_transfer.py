@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
-                ('asset', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transfers', to='asset_mgmt.asset')),
+                ('asset', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transfers', to='assets.asset')),
                 ('from_user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transfers_from', to=settings.AUTH_USER_MODEL)),
                 ('to_user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='transfers_to', to=settings.AUTH_USER_MODEL)),
             ],

@@ -47,8 +47,8 @@ class Migration(migrations.Migration):
                 ('asset_status', models.CharField(default='available', max_length=50)),
                 ('asset_serial_number', models.CharField(blank=True, max_length=100, null=True, default="")),
                 ('current_holder', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('asset_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='asset_mgmt.asset_type')),
-                ('asset_location', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='asset_mgmt.location')),
+                ('asset_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='assets.asset_type')),
+                ('asset_location', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='assets.location')),
             ],
         ),
     ]

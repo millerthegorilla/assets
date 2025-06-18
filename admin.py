@@ -34,7 +34,7 @@ class AssetAdmin(admin.ModelAdmin):
 
 @admin.register(AssetType)
 class AssetTypeAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "description")
+    list_display = ("id", "name")
     search_fields = ("name",)
     ordering = ("-id",)
     readonly_fields = ("created", "last_updated")
@@ -46,7 +46,7 @@ class AssetTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "description")
+    list_display = ("id", "name")
     search_fields = ("name",)
     ordering = ("-id",)
     readonly_fields = ("created", "last_updated")

@@ -18,7 +18,8 @@ class Location(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     name = models.CharField(max_length=255, blank=False, null=False)
-    
+    description = models.TextField(blank=True, default="")
+
     class Meta:
         pass
 
