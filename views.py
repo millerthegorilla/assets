@@ -1,11 +1,7 @@
 from django.contrib import messages
-<<<<<<< HEAD
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import TrigramSimilarity
-=======
-from django.contrib.auth.decorators import login_required
->>>>>>> 4caf4a30166c099001de972c41cd3e5ab3264391
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
@@ -67,11 +63,7 @@ class AssetTransferView(FormView):
         asset_transfer = AssetTransfer.objects.get(id=request.POST.get("transfer_id"))
         asset_transfer.notes = form.data.get("notes", "")
         asset_transfer.save()
-<<<<<<< HEAD
-        return redirect("asset_mgmt:asset_transfer_notes_added")
-=======
         return redirect("assets:asset_transfer_notes_added")
->>>>>>> 4caf4a30166c099001de972c41cd3e5ab3264391
 
 
 @method_decorator(login_required, name="dispatch")
@@ -86,8 +78,6 @@ class AssetTransferCancelView(View):
         }
         asset_transfer.delete()
         return render(request, "asset_transfer_cancel_success.html", context)
-<<<<<<< HEAD
-
 
 # a view to choose an asset and view its asset_transfer history
 @method_decorator(login_required, name="dispatch")
@@ -124,5 +114,3 @@ class AssetTransferHistoryView(View):
                     },
                 )
         return render(request, self.template_name, context)
-=======
->>>>>>> 4caf4a30166c099001de972c41cd3e5ab3264391
