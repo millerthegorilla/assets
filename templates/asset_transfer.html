@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Asset Transfer Complete
+{% endblock title %}
+{% block content %}
+  <h1>Asset Transferred Successfully</h1>
+  <h2>Asset Transfer id: {{ transfer_id }}</h2>
+  <h3>Date: {{ transfer_date }}</h3>
+  <p>
+    The asset "{{ asset_name }}" used at "{{ asset_location }}" has been successfully transferred to "{{ request.user }}".
+  </p>
+  <h1>Asset Transfer</h1>
+  <form action="" method="post">
+    <input type="hidden" name="transfer_id" value="{{ transfer_id }}" />
+    {% csrf_token %}
+    <table>
+      {{ form|crispy }}
+    </table>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  <button class="btn btn-primary"
+          onclick="window.location.href='{% url 'asset_mgmt:asset_transfer_cancel' uuid=asset_id %}'">Cancel</button>
+{% endblock content %}
