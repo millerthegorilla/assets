@@ -7,7 +7,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('asset_mgmt', '0004_asset_transfer_notes'),
+        ('assets', '0004_asset_transfer_notes'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

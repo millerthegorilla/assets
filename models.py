@@ -5,7 +5,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
-from mind_asset_mgmt.users.models import (
+from mind_asset_management.users.models import (
     User,  # Assuming User model is defined in user.models
 )
 
@@ -18,8 +18,7 @@ class Location(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     name = models.CharField(max_length=255, blank=False, null=False)
-    description = models.TextField(blank=True, default="")
-
+    
     class Meta:
         pass
 
@@ -27,10 +26,10 @@ class Location(models.Model):
         return str(self.name)
 
     def get_absolute_url(self):
-        return reverse("mind_asset_mgmt_location_detail", args=(self.pk,))
+        return reverse("mind_asset_management_location_detail", args=(self.pk,))
 
     def get_update_url(self):
-        return reverse("mind_asset_mgmt_location_update", args=(self.pk,))
+        return reverse("mind_asset_management_location_update", args=(self.pk,))
 
 
 class AssetType(models.Model):
@@ -48,10 +47,10 @@ class AssetType(models.Model):
         return str(self.description)
 
     def get_absolute_url(self):
-        return reverse("mind_asset_mgmt_asset_type_detail", args=(self.pk,))
+        return reverse("mind_asset_management_asset_type_detail", args=(self.pk,))
 
     def get_update_url(self):
-        return reverse("mind_asset_mgmt_asset_type_update", args=(self.pk,))
+        return reverse("mind_asset_management_asset_type_update", args=(self.pk,))
 
 
 class Asset(models.Model):
@@ -63,6 +62,7 @@ class Asset(models.Model):
     current_holder = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, blank=False, null=False)
     description = models.TextField(blank=True, default="")
+    serial_number = models.CharField(max_length=100, blank=True, null=True)
     type = models.ForeignKey(
         AssetType,
         null=False,
@@ -81,7 +81,6 @@ class Asset(models.Model):
         on_delete=models.CASCADE,
         related_name="assets",
     )
-    serial_number = models.CharField(max_length=100, blank=True, default="")
 
     class Meta:
         pass
@@ -90,11 +89,10 @@ class Asset(models.Model):
         return str(self.pk)
 
     def get_absolute_url(self):
-        return reverse("mind_asset_mgmt_asset_detail", args=(self.pk,))
+        return reverse("mind_asset_management_asset_detail", args=(self.pk,))
 
     def get_update_url(self):
-        return reverse("mind_asset_mgmt_asset_update", args=(self.pk,))
-
+        return reverse("mind_asset_management_asset_update", args=(self.pk,))
 
 class AssetTransfer(models.Model):
     # Fields

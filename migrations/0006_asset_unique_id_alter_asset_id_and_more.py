@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('asset_mgmt', '0005_rename_asset_transfer_assettransfer_and_more'),
+        ('assets', '0005_rename_asset_transfer_assettransfer_and_more'),
     ]
 
     operations = [
