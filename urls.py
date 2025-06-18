@@ -6,12 +6,7 @@ from .views import AssetTransferCancelView
 from .views import AssetTransferHistoryView
 from .views import AssetTransferView
 
-app_name = "asset_mgmt"
-=======
-from .views import AssetTransferView
-
 app_name = "assets"
->>>>>>> 4caf4a30166c099001de972c41cd3e5ab3264391
 
 urlpatterns = [
     path(
