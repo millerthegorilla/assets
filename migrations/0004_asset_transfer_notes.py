@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('asset_mgmt', '0003_asset_transfer'),
+        ('assets', '0003_asset_transfer'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='asset_transfer',
             name='notes',
-            field=models.TextField(blank=True, null=True),
+            field=models.TextField(blank=True, null=True, default=""),
         ),
     ]

@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
                 ('type_name', models.CharField(max_length=255)),
-                ('type_description', models.TextField(blank=True, null=True)),
+                ('type_description', models.TextField(blank=True, null=True, default="")),
             ],
         ),
         migrations.CreateModel(
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
                 ('location_name', models.CharField(max_length=255)),
-                ('location_description', models.TextField(blank=True, null=True)),
+                ('location_description', models.TextField(blank=True, null=True, default="")),
             ],
         ),
         migrations.CreateModel(
@@ -43,12 +43,12 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
                 ('asset_name', models.CharField(max_length=255)),
-                ('asset_description', models.TextField(blank=True, null=True)),
+                ('asset_description', models.TextField(blank=True, null=True, default="")),
                 ('asset_status', models.CharField(default='available', max_length=50)),
                 ('asset_serial_number', models.CharField(blank=True, max_length=100, null=True)),
                 ('current_holder', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('asset_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='asset_mgmt.asset_type')),
-                ('asset_location', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='asset_mgmt.location')),
+                ('asset_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='assets.asset_type')),
+                ('asset_location', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='assets.location')),
             ],
         ),
     ]

@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .views import AssetTransferCancelView
 from .views import AssetTransferView
 
-app_name = "asset_mgmt"
+app_name = "assets"
 
 urlpatterns = [
     path(

@@ -61,7 +61,7 @@ class AssetTransferView(FormView):
         asset_transfer = AssetTransfer.objects.get(id=request.POST.get("transfer_id"))
         asset_transfer.notes = form.data.get("notes", "")
         asset_transfer.save()
-        return redirect("asset_mgmt:asset_transfer_notes_added")
+        return redirect("assets:asset_transfer_notes_added")
 
 
 @method_decorator(login_required, name="dispatch")
